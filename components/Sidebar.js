@@ -3,9 +3,9 @@ import React, { useRef } from "react";
 import {
   AiFillCloseCircle,
   AiOutlineShoppingCart,
-  AiOutlinePlus,
-  AiOutlineMinus,
   AiOutlineDelete,
+  AiFillPlusCircle,
+  AiFillMinusCircle 
 } from "react-icons/ai";
 import { BsFillBagCheckFill } from "react-icons/bs";
 
@@ -30,7 +30,7 @@ const Sidebar = ({ cart, addToCart, removeFromCart, clearCart, subTotal }) => {
         <AiOutlineShoppingCart size={30} />
       </div>
       <div
-        className="z-10 sidecart transition-transform translate-x-full transform fixed top-0 right-0 bg-pink-100 py-10 px-8 w-100 h-full"
+        className="z-10 sidecart transition-transform translate-x-full transform fixed top-0 right-0 bg-pink-100 py-10 px-8 w-100 h-[100vh]"
         ref={ref}
       >
         <h2 className="font-bold text-xl text-center">Shopping Cart</h2>
@@ -52,7 +52,7 @@ const Sidebar = ({ cart, addToCart, removeFromCart, clearCart, subTotal }) => {
                   <div className="item flex items-center my-5">
                     <div className="w-2/3 font-semibold">{cart[k].name}</div>
                     <div className="flex items-center font-semibold text-pink-500 justify-center w-1/3">
-                      <AiOutlineMinus
+                      <AiFillMinusCircle
                         className="cursor-pointer"
                         size={30}
                         onClick={() =>
@@ -66,8 +66,8 @@ const Sidebar = ({ cart, addToCart, removeFromCart, clearCart, subTotal }) => {
                           )
                         }
                       />
-                      <span className="mx-4">{cart[k].qty}</span>
-                      <AiOutlinePlus
+                      <span className="text-sm mx-2">{cart[k].qty}</span>
+                      <AiFillPlusCircle
                         className="cursor-pointer"
                         onClick={() =>
                           addToCart(

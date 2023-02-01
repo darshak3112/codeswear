@@ -195,12 +195,12 @@ const Slug = ({ addToCart }) => {
               </div>
               {!service && service != null && (
                 <div className="text-red-700">
-                  Sorry :( We Donot Deliver To This ZIP Code
+                  Sorry! We do not deliver to this pincode yet
                 </div>
               )}
               {service && service != null && (
                 <div className="text-green-700">
-                  Yay! We Can Deliver To This ZIP Code
+                  Yay! This pincode is servicable
                 </div>
               )}
             </div>

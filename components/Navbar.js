@@ -5,7 +5,7 @@ import Sidebar from "./Sidebar";
 
 const Navbar = ({ cart, addToCart, removeFromCart, clearCart, subTotal }) => {
   return (
-    <div className="shadow-md flex flex-col md:flex-row md:justify-start justify-center items-center  py-3">
+    <div className="sticky z-10 bg-white shadow-md flex flex-col md:flex-row md:justify-start justify-center items-center  py-3">
       <div className="logo mx-5">
         <Link href="/">
           <Image
@@ -18,19 +18,11 @@ const Navbar = ({ cart, addToCart, removeFromCart, clearCart, subTotal }) => {
         </Link>
       </div>
       <div className="nav">
-        <ul className="flex space-x-2 font-bold md:text-sm">
-          <Link href="/tshirts">
-            <li>T-Shirts</li>
-          </Link>
-          <Link href="/hoodies">
-            <li>Hoodies</li>
-          </Link>
-          <Link href="/mugs">
-            <li>Mugs</li>
-          </Link>
-          <Link href="/stickers">
-            <li>Stickers</li>
-          </Link>
+        <ul className='flex items-center space-x-6 font-bold md:text-md'>
+          <Link href={"/tshirts"}><li>T-Shirts</li></Link>
+          <Link href={"/hoodies"}><li>Hoodies</li></Link>
+          <Link href={"/stickers"}><li>Stickers</li></Link>
+          <Link href={"/mugs"}><li>Mugs</li></Link>
         </ul>
       </div>
 
