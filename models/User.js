@@ -17,4 +17,5 @@ const userSchema = new Schema({
     }
 }, { timestamps: true });
 
+mongoose.models = {}
 export default model("User", userSchema);

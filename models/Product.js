@@ -39,4 +39,5 @@ const productSchema = new Schema({
     }
 }, { timestamps: true });
 
+mongoose.models = {}
 export default model("Product", productSchema);
