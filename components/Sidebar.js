@@ -5,7 +5,7 @@ import {
   AiOutlineShoppingCart,
   AiOutlineDelete,
   AiFillPlusCircle,
-  AiFillMinusCircle 
+  AiFillMinusCircle
 } from "react-icons/ai";
 import { BsFillBagCheckFill } from "react-icons/bs";
 
@@ -30,7 +30,7 @@ const Sidebar = ({ cart, addToCart, removeFromCart, clearCart, subTotal }) => {
         <AiOutlineShoppingCart size={30} />
       </div>
       <div
-        className="z-10 sidecart transition-transform translate-x-full transform fixed top-0 right-0 bg-pink-100 py-10 px-8 w-100 h-[100vh]"
+        className={`z - 10 sidecart transition-transform ${Object.keys(cart).length===0 ? 'translate-x-0': 'translate - x - full'} transform fixed top-0 right-0 bg-pink-100 py-10 px-8 w-100 h-[100vh]`}
         ref={ref}
       >
         <h2 className="font-bold text-xl text-center">Shopping Cart</h2>
@@ -88,6 +88,7 @@ const Sidebar = ({ cart, addToCart, removeFromCart, clearCart, subTotal }) => {
             })}
           </ol>
         )}
+        <span className='font-bold'>subtotal : {subTotal}</span>
 
         <Link
           href="/checkout"

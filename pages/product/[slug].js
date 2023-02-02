@@ -163,14 +163,14 @@ const Slug = ({ addToCart }) => {
                 </div>
               </div>
               <div className="flex">
-                <span className="title-font font-medium text-2xl text-gray-900">
-                  Rs 58.00
+                <span className="title-font font-medium text-xl text-gray-900">
+                  ₹499.00
                 </span>
-                <button className="flex ml-auto text-white bg-pink-500 border-0 py-2 px-6 focus:outline-none hover:bg-pink-600 rounded">
+                <button className="flex ml-8 text-white text-sm bg-pink-500 border-0 py-2 px-2 md:px-6 focus:outline-none hover:bg-pink-600 rounded">
                   Buy Now
                 </button>
                 <button
-                  className="flex ml-4 text-white bg-pink-500 border-0 py-2 px-6 focus:outline-none hover:bg-pink-600 rounded"
+                  className="flex ml-4 text-white text-sm bg-pink-500 border-0 py-2 px-2 md:px-6 focus:outline-none hover:bg-pink-600 rounded"
                   onClick={() =>
                     addToCart(slug, 1, 58, "Wear The Code", "XL", "Red")
                   }

@@ -50,6 +50,7 @@ function MyApp({ Component, pageProps }) {
     try {
       if (localStorage.getItem("cart")) {
         setCart(JSON.parse(localStorage.getItem("cart")));
+        saveCart(JSON.parse(localStorage.getItem("cart")))
       }
     } catch (error) {
       console.warn(error);
@@ -73,7 +74,7 @@ function MyApp({ Component, pageProps }) {
         removeFromCart={removeFromCart}
         clearCart={clearCart}
         subTotal={subTotal}
-        {...pageProps}
+        {...pageProps} 
       />
       <Footer
         cart={cart}
