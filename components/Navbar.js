@@ -3,6 +3,7 @@ import Link from "next/link";
 import React from "react";
 import Sidebar from "./Sidebar";
 
+
 const Navbar = ({ cart, addToCart, removeFromCart, clearCart, subTotal }) => {
   return (
     <div className="sticky z-10 bg-white shadow-md flex flex-col md:flex-row md:justify-start justify-center items-center  py-3">
