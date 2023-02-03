@@ -6,7 +6,6 @@ const handler = async (req, res) => {
     
     if (req.method == "POST") {
         try {
-            console.log(Object.keys( req.body).length)
             for (let i = 0; i < Object.keys( req.body).length; i++) {
                 console.log(i);
                 let p = new Product({

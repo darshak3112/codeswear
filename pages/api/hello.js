@@ -5,8 +5,6 @@ import Product from "../../models/Product"
 
 
 const handler = async (req, res) => {
-  let p = await Product.find();
-  console.log(p);
-    res.status(200).send("ok")
+  res.status(200).send("ok")
 };
 export default connectDB(handler);

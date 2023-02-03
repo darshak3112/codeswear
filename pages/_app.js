@@ -29,7 +29,6 @@ function MyApp({ Component, pageProps }) {
   };
 
   const clearCart = () => {
-    console.log("clear");
     setCart({});
     saveCart({});
   };
@@ -74,7 +73,7 @@ function MyApp({ Component, pageProps }) {
         removeFromCart={removeFromCart}
         clearCart={clearCart}
         subTotal={subTotal}
-        {...pageProps} 
+        {...pageProps}
       />
       <Footer
         cart={cart}
