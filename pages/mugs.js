@@ -1,12 +1,20 @@
 import Link from 'next/link'
 import React from 'react'
+import Head from "next/head";
+
 
 const Mugs = () => {
   return (
-    <div>    <section className="text-gray-600 body-font">
-    <div className="container px-5 py-24 mx-auto">
-      <div className="flex flex-wrap -m-4">
-        <div className="lg:w-1/5 md:w-1/2 p-4 w-full shadow-lg m-5">
+    <div>
+      <Head>
+        <title>Mugs</title>
+        <meta name="description" content="Codeswear Hoodies Collection" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+      <section className="text-gray-600 body-font">
+        <div className="container px-5 py-24 mx-auto">
+          <div className="flex flex-wrap justify-center -m-4">
+          <div className="lg:w-1/5 md:w-1/2 p-4 w-full shadow-lg m-5">
           <Link href={'product/wear-the-code'} className="block relative rounded overflow-hidden">
             <img alt="ecommerce" className="m-auto md:mx-0 h-[30vh] md:h-[36vh]" src="https://m.media-amazon.com/images/I/51NN9iS2j0L._SX522_.jpg" />
           </Link>
@@ -103,12 +111,11 @@ const Mugs = () => {
         </div>
         
       
-      </div>
-
-
+          </div>
+        </div>
+      </section>
     </div>
-  </section ></div>
-  )
+  );
 }
 
 export default Mugs

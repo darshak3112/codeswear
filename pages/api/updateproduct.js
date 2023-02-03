@@ -7,7 +7,6 @@ const handler = async (req, res) => {
     try {
       for (let i = 0; i < Object.keys(req.body).length; i++) {
         let p = await Product.findByIdAndUpdate(req.body[i]._id, req.body[i]);
-        console.log(p);
       }
       res.status(200).json({ success: "success" });
     } catch (e) {
