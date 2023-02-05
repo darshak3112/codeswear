@@ -54,7 +54,7 @@ const Tshirts = ({ tshirts }) => {
 
 export async function getServerSideProps() {
   // Fetch data from external API
-  const res = await fetch(`http://localhost:3000/api/getProducts/t-shirt`)
+  const res = await fetch(`http://localhost:3000/api/getAllProducts/t-shirt`)
   const { tshirts } = await res.json()
   return { props: { tshirts } }
 }
