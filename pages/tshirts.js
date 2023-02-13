@@ -8,7 +8,7 @@ const Tshirts = ({ tshirts }) => {
   return (
     <div>
       <Head>
-        <title>Stickers</title>
+        <title>T-shirts</title>
         <meta name="description" content="Codeswear Hoodies Collection" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
