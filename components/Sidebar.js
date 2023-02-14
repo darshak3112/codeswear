@@ -55,7 +55,7 @@ const Sidebar = ({ cart, addToCart, removeFromCart, clearCart, subTotal }) => {
               return (
                 <li key={k}>
                   <div className="item flex items-center my-5">
-                    <div className="w-2/3 font-semibold">{cart[k].name}</div>
+                    <div className="w-2/3 font-semibold">{cart[k].name}({cart[k].size}/{cart[k].variant})</div>
                     <div className="flex items-center font-semibold text-pink-500 justify-center w-1/3">
                       <AiFillMinusCircle
                         className="cursor-pointer"
