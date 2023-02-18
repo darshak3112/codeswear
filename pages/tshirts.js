@@ -1,6 +1,5 @@
 import Link from 'next/link'
 import React from 'react'
-import axios from "axios";
 import Head from "next/head";
 
 
@@ -15,6 +14,7 @@ const Tshirts = ({ tshirts }) => {
       <section className="text-gray-600 body-font">
         <div className="container px-5 py-24 mx-auto">
           <div className="flex flex-wrap justify-center -m-4">
+            {Object.keys(tshirts).length === 0 && <p>Sorry! Currently we are out of stock. New stock is comming soon!</p>}
             {Object.keys(tshirts).map((item) => {
               return <div key={tshirts[item]._id} className="lg:w-1/5 md:w-1/2 p-4 w-full shadow-lg m-5">
                 <Link passHref={true} href={`product/${tshirts[item].slug}`} className="block relative rounded overflow-hidden">

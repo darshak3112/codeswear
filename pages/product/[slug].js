@@ -8,7 +8,6 @@ import Error from "next/error";
 import Link from 'next/link'
 
 const Post = ({ buyNow, addToCart, product, variants, error }) => {
-  //console.log(product,variants)
   const router = useRouter();
   const { slug } = router.query;
   const [pin, setPin] = useState();
@@ -42,7 +41,7 @@ const Post = ({ buyNow, addToCart, product, variants, error }) => {
       setService(false);
       toast.error("Sorry! Your pincode is not serviceable", {
         position: "bottom-center",
-        autoClose: 3000,
+        autoClose: 1000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
@@ -57,12 +56,12 @@ const Post = ({ buyNow, addToCart, product, variants, error }) => {
 
   const refreshVariant = (newsize, newcolor) => {
     let url = `http://localhost:3000/product/${variants[newcolor][newsize]["slug"]}`;
-    // window.location = url;
     router.push(url);
   };
   if (error == 404) {
     return <Error statusCode={404} />;
   }
+
 
   return (
     <>
@@ -251,8 +250,8 @@ const Post = ({ buyNow, addToCart, product, variants, error }) => {
                           refreshVariant(size, "yellow");
                         }}
                         className={`border-2  ml-1 bg-yellow-500 rounded-full w-6 h-6 focus:outline-none ${color === "yellow"
-                            ? "border-black"
-                            : "border-gray-300"
+                          ? "border-black"
+                          : "border-gray-300"
                           }`}
                       ></button>
                     )}
@@ -263,8 +262,8 @@ const Post = ({ buyNow, addToCart, product, variants, error }) => {
                           refreshVariant(size, "purple");
                         }}
                         className={`border-2  ml-1 bg-purple-500 rounded-full w-6 h-6 focus:outline-none ${color === "purple"
-                            ? "border-black"
-                            : "border-gray-300"
+                          ? "border-black"
+                          : "border-gray-300"
                           }`}
                       ></button>
                     )}
