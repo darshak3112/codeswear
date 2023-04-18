@@ -32,7 +32,7 @@ const Sidebar = ({ user, logout, cart, addToCart, removeFromCart, clearCart, sub
         className="cursor-pointer flex items-center cart absolute right-0 mx-5 sm:mb-5"
       >
         <a onMouseOver={() => { setDropDown(true) }} onMouseLeave={() => { setDropDown(false) }} >
-          {dropDown && <div onMouseOver={() => { setDropDown(true) }} onMouseLeave={() => { setDropDown(false) }} className="absolute right-8 rounded-md px-5 top-7 py-4 w-32 bg-pink-300">
+          {dropDown && <div onMouseOver={() => { setDropDown(true) }} onMouseLeave={() => { setDropDown(false) }} className="absolute right-8 rounded-md px-5 top-7 py-4 w-32 bg-pink-200 border shadow-lg">
             <ul>
               <Link href={'/myaccount'}><li className="py-1 text-sm font-bold hover:text-pink-700 ">My Account</li></Link>
               <Link href={'orders'}><li className="py-1 text-sm font-bold hover:text-pink-700 ">Orders</li></Link>

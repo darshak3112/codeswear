@@ -2,6 +2,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import "../styles/globals.css";
 import { useEffect, useState } from "react";
+import LoadingBar from 'react-top-loading-bar'
 import { useRouter } from "next/router";
 
 function MyApp({ Component, pageProps }) {
@@ -9,6 +10,7 @@ function MyApp({ Component, pageProps }) {
   const [subTotal, setSubTotal] = useState(0);
   const [user, setUser] = useState({ value: null })
   const [key, setKey] = useState(0);
+  const [progress, setProgress] = useState(0);
   const router = useRouter();
 
   const saveCart = (myCart) => {
@@ -59,6 +61,13 @@ function MyApp({ Component, pageProps }) {
   };
 
   useEffect(() => {
+
+    router.events.on('routeChangeStart', () => {
+      setProgress(100);
+    })
+    router.events.on('routeChangeComplete', () => {
+      setProgress(100);
+    })
     try {
       if (localStorage.getItem("cart")) {
         setCart(JSON.parse(localStorage.getItem("cart")));
@@ -81,11 +90,17 @@ function MyApp({ Component, pageProps }) {
   const logout = () => {
     localStorage.removeItem('token');
     setKey(Math.random())
-    setUser({value:null})
+    setUser({ value: null })
   }
 
   return (
     <>
+      <LoadingBar
+        color='#ff2d55'
+        progress={progress}
+        waitingTime={400}
+        onLoaderFinished={() => setProgress(0)}
+      />
       <Navbar
         key={key}
         logout={logout}
