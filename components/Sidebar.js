@@ -1,5 +1,5 @@
 import Link from "next/link";
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import {
   AiFillCloseCircle,
   AiOutlineShoppingCart,
@@ -11,8 +11,10 @@ import { BsFillBagCheckFill } from "react-icons/bs";
 import { MdAccountCircle } from "react-icons/md";
 
 
-const Sidebar = ({ cart, addToCart, removeFromCart, clearCart, subTotal }) => {
+const Sidebar = ({ user, logout, cart, addToCart, removeFromCart, clearCart, subTotal }) => {
   const ref = useRef();
+  const [dropDown, setDropDown] = useState(false);
+
   const ToggleCart = () => {
     if (ref.current.classList.contains("translate-x-full")) {
       ref.current.classList.remove("translate-x-full");
@@ -27,11 +29,25 @@ const Sidebar = ({ cart, addToCart, removeFromCart, clearCart, subTotal }) => {
     <>
       <div
 
-        className="cursor-pointer flex cart absolute right-0 mx-5"
+        className="cursor-pointer flex items-center cart absolute right-0 mx-5 sm:mb-5"
       >
-        <Link href={"/login"}>
-          <MdAccountCircle size={30} />
-        </Link>
+        <a onMouseOver={() => { setDropDown(true) }} onMouseLeave={() => { setDropDown(false) }} >
+          {dropDown && <div onMouseOver={() => { setDropDown(true) }} onMouseLeave={() => { setDropDown(false) }} className="absolute right-8 rounded-md px-5 top-7 py-4 w-32 bg-pink-300">
+            <ul>
+              <Link href={'/myaccount'}><li className="py-1 text-sm font-bold hover:text-pink-700 ">My Account</li></Link>
+              <Link href={'orders'}><li className="py-1 text-sm font-bold hover:text-pink-700 ">Orders</li></Link>
+              <li onClick={logout} className="py-1 text-sm font-bold hover:text-pink-700 ">Logout</li>
+            </ul>
+          </div>}
+
+          {user.value && <MdAccountCircle size={30} />}
+        </a>
+
+
+        {!user.value && <Link href={"/login"}>
+          <button className="bg-pink-500 mx-2 px-2 py-1 rounded-md text-sm text-white " >Login</button>
+        </Link>}
+
         <AiOutlineShoppingCart onClick={ToggleCart} size={30} />
       </div>
       <div

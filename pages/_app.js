@@ -7,6 +7,8 @@ import { useRouter } from "next/router";
 function MyApp({ Component, pageProps }) {
   const [cart, setCart] = useState({});
   const [subTotal, setSubTotal] = useState(0);
+  const [user, setUser] = useState({ value: null })
+  const [key, setKey] = useState(0);
   const router = useRouter();
 
   const saveCart = (myCart) => {
@@ -37,7 +39,7 @@ function MyApp({ Component, pageProps }) {
 
   const buyNow = (itemCode, quantity, price, name, size, variant) => {
     saveCart({});
-    let newCart = { itemCode: { qty: 1, price,name, size, variant } };
+    let newCart = { itemCode: { qty: 1, price, name, size, variant } };
     setCart(newCart);
     saveCart(newCart);
     router.push('/checkout');
@@ -67,11 +69,27 @@ function MyApp({ Component, pageProps }) {
       localStorage.clear();
     }
     //eslint-disable-next-line
-  }, []);
+
+    const token = localStorage.getItem('token');
+    if (token) {
+      setUser({ value: token })
+      setKey(Math.random())
+    }
+
+  }, [router.query]);
+
+  const logout = () => {
+    localStorage.removeItem('token');
+    setKey(Math.random())
+    setUser({value:null})
+  }
 
   return (
     <>
       <Navbar
+        key={key}
+        logout={logout}
+        user={user}
         cart={cart}
         addToCart={addToCart}
         removeFromCart={removeFromCart}
