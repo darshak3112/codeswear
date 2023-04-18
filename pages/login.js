@@ -28,6 +28,7 @@ const Login = () => {
 
     let response = await res.json();
     if (response.success) {
+      localStorage.setItem("token", response.token);
       setEmail('');
       setPassword('');
       toast.success('You are successfully logged in!...', {

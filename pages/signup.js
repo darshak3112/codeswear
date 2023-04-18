@@ -1,10 +1,14 @@
 import Link from 'next/link'
 import React, { useState } from 'react'
+import { useRouter } from 'next/router';
 import { toast, ToastContainer } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
 
 
 const Signup = () => {
+
+  const router = useRouter();
+
   const [name, setName] = useState();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
@@ -41,6 +45,9 @@ const Signup = () => {
         progress: undefined,
         theme: "light",
       });
+      setTimeout(() => {
+        router.push("/login");
+      }, 1000);
     } else {
       toast.error('Please try again...', {
         position: "top-left",
@@ -51,7 +58,7 @@ const Signup = () => {
         draggable: true,
         progress: undefined,
         theme: "light",
-        });
+      });
     }
   }
 

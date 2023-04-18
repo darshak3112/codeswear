@@ -1,15 +1,16 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import User from "../../models/User";
 import connectDB from "../../middleware/mongoose";
+const CryptoJS = require("crypto-js");
 
 const handler = async (req, res) => {
 
     if (req.method == "POST") {
         try {
-            console.log(req.body);
-            let u = new User(req.body);
+            const { name, email, password } = req.body;
+            let u = new User({ name, email, password: CryptoJS.AES.encrypt(req.body.password, "secret123").toString() });
             await u.save();
-            res.status(200).json({ success: true});
+            res.status(200).json({ success: true });
         } catch (e) {
             res.status(400).json({ error: "This method is not allowed" });
             console.log("error ", e);
