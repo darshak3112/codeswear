@@ -9,7 +9,7 @@ const handler = async (req, res) => {
             console.log(req.body);
             let u = new User(req.body);
             await u.save();
-            res.status(200).json({ success: "success" });
+            res.status(200).json({ success: true});
         } catch (e) {
             res.status(400).json({ error: "This method is not allowed" });
             console.log("error ", e);
