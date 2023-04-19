@@ -54,7 +54,7 @@ const Stickers = ({ tshirts }) => {
 
 export async function getServerSideProps() {
   // Fetch data from external API
-  const res = await fetch(`http://localhost:3000/api/getAllProducts/stickers`)
+  const res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/getAllProducts/stickers`)
   const { tshirts } = await res.json()
   return { props: { tshirts } }
 }

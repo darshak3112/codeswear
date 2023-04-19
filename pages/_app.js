@@ -88,9 +88,11 @@ function MyApp({ Component, pageProps }) {
   }, [router.query]);
 
   const logout = () => {
+    clearCart();
     localStorage.removeItem('token');
     setKey(Math.random())
     setUser({ value: null })
+    router.push('/')
   }
 
   return (
@@ -101,16 +103,7 @@ function MyApp({ Component, pageProps }) {
         waitingTime={400}
         onLoaderFinished={() => setProgress(0)}
       />
-      <Navbar
-        key={key}
-        logout={logout}
-        user={user}
-        cart={cart}
-        addToCart={addToCart}
-        removeFromCart={removeFromCart}
-        clearCart={clearCart}
-        subTotal={subTotal}
-      />
+      {key && <Navbar logout={logout} user={user} key={key} cart={cart} addToCart={addToCart} removeFromCart={removeFromCart} clearCart={clearCart} subTotal={subTotal} />}
       <Component
         cart={cart}
         addToCart={addToCart}
