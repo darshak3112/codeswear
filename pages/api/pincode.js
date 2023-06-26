@@ -1,6 +1,11 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
+import pincodes from '../../pincode.json'
 
 export default function handler(req, res) {
-    res.status(200).json([232356,395006,395040,395010,382810,523648])
-  }
+	/*let pincodes = {
+		"313001" : ["Udaipur","Rajsthan"],
+		"313002" : ["Jaipur","Rajasthan"],
+		"313003" : ["Ahmedabad","Gujarat"]
+	}*/
+	res.status(200).json(pincodes)
+}
   

@@ -1,25 +1,53 @@
-
-
-// getting-started.js
 const mongoose = require('mongoose');
+const orderSchema = new mongoose.Schema({
+    email: {
+		type:String,
+		required:true
+	},
+	orderId: {
+		type:String,
+		required:true
+	},
+	tansactionId: {
+		type:String,
+		default:""
+	},
+	products: {
+		type:Object,
+		required:true
+	},
+    amount : {
+        type:Number,
+        required:true
+    },
+    status : {
+        type:String,
+        default:'initiate',
+        required:true
+    },
+	paymentInfo: {
+		type:String,
+		default:''
+	},
+	paidAt:{
+		type:Date,
+		default:null
+	},
+	address:{
+		type:String,
+		required:true
+	},
+	deliveryStatus:{
+		type:String,
+		default:'unshipped'
+	},
+	deliveredAt:{
+        type:Date,
+		default:null
+    }
+},{
+    timestamps:true
+})
 
-const OrderSchema=new mongoose.Schema({
-    email:{type:String,required:true},
-    orderId:{type:String,required:true},
-    paymentInfo:{type:String,default:''},
-    products:{type:Object,required:true},
-    address:{type:String,required:true},
-    district:{type:String,required:true},
-    state:{type:String,required:true},
-    pincode:{type:String,required:true},
-    phone:{type:String,required:true},
-    name:{type:String,required:true},
-    transactionid:{type:String,default:''},
-    amount:{type: Number,required:true},
-    status:{type:String,default:'Initiated',required:true},
-    deliveryStatus:{type:String,default:'unshipped',required:true},
-},{timestamps:true});
-
-mongoose.models={}
-
-export default mongoose.model("Order",OrderSchema)
+mongoose.models = {}
+export default mongoose.model('Order',orderSchema);

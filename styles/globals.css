@@ -1,7 +1,9 @@
 @tailwind base;
 @tailwind components;
-@tailwind utilities; 
-
+@tailwind utilities;
 body{
-    overflow-x: hidden;
+    overflow-x:hidden;
+}
+.help-block {
+	color:red;
 }
